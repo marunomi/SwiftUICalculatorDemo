@@ -20,6 +20,7 @@ struct CaluclatorBrain {
         case unaryOperation( (Double) -> Double)
         case binaryOperation((Double,Double) -> Double)
         case equals
+        case clear
     }
     
     private var operations: Dictionary<String, Operation> = [
@@ -33,6 +34,7 @@ struct CaluclatorBrain {
         "÷": Operation.binaryOperation({$0 / $1}),
         "×": Operation.binaryOperation({$0 * $1}),
         "=": Operation.equals,
+        "AC": Operation.clear,
         
     ]
     
@@ -54,6 +56,8 @@ struct CaluclatorBrain {
                 break
             case .equals:
                 performingPendingBinaryOperation()
+            case .clear:
+                self.accumlator = 0
             }
         }
         
