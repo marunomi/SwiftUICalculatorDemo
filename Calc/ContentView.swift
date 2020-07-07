@@ -102,7 +102,7 @@ struct UnarySmbols: View {
                 self.brain.setOperand(self.calculatorVM.displayValue)
                 self.brain.performOperation("AC")
                 if self.brain.result != nil {
-                    self.calculatorVM.displayValue = 0//result
+                    self.calculatorVM.displayValue = 0
                 }
             })
                 .frame(width: 64, height: 64)
